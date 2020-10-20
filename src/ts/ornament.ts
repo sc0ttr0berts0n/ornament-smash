@@ -97,9 +97,9 @@ export default class Ornament {
     destory() {
         this.el.destroy();
         this.isDead = true;
-        document.body.classList.add('isClicked');
     }
     handleClick() {
+        document.body.classList.add('isClicked');
         this.destory();
         this.addConfetti(10);
         this.game.score++;
