@@ -110,6 +110,8 @@ export default class Ornament {
             this.destroy();
         } else if (this.age > this.matureAge && this.pos.y > height) {
             this.destroy();
+        } else if (this.game.strikes >= 3) {
+            this.endGameRemove();
         } else {
             this.render();
         }
@@ -137,6 +139,10 @@ export default class Ornament {
         this.destroy();
         this.addConfetti();
         this.game.addScore();
+    }
+    endGameRemove() {
+        this.destroy();
+        this.addConfetti();
     }
     addConfetti(
         amt: number = 10,

@@ -15,6 +15,7 @@ export default class Game {
     private lastRestart: number = 0;
     private paused: boolean = false;
     private muted: boolean = false;
+    public gameover = false;
     public ornaments: Ornament[] = [];
     public confetti: Confetti[] = [];
     public crosshair: Crosshair;
@@ -52,7 +53,7 @@ export default class Game {
                 this.framesPerObject - this.score > this.minFramesPerObject
                     ? this.framesPerObject - this.score
                     : this.minFramesPerObject;
-            if (this.frameCount % rate === 0) {
+            if (this.frameCount % rate === 0 && this.strikes < 3) {
                 this.ornaments.push(new Ornament(this));
             }
             if (this.ornaments.length) {
@@ -85,5 +86,8 @@ export default class Game {
     addStrike(num: number = 1) {
         this.strikes = this.strikes + num;
         this.strikeNode.setAttribute('data-strikes', this.strikes.toString());
+        if (this.strikes >= 3) {
+            this.gameover = true;
+        }
     }
 }
