@@ -19,7 +19,7 @@ export default class Game {
     public ornaments: Ornament[] = [];
     public confetti: Confetti[] = [];
     public crosshair: Crosshair;
-    public framesPerObject = 120;
+    public framesPerObject = 90;
     public minFramesPerObject = 5;
     public score = 0;
     public scoreNode = document.querySelector('.score');
