@@ -13,7 +13,11 @@ export default class Ornament {
     private friction = new Victor(0.99, 0.99);
     private age = 0;
     private lifespan = 500;
+    private matureAge = 20;
+    public isOnScreen = false;
     public isDead = false;
+    public isOld = false;
+    public isClicked = false;
 
     constructor(game: Game) {
         this.game = game;
@@ -66,11 +70,12 @@ export default class Ornament {
     }
     update() {
         const width = this.game.app.renderer.width;
+        const height = this.game.app.renderer.height;
         this.age++;
         this.acc = this.gravity;
         this.vel = this.vel.add(this.acc).multiply(this.friction);
         this.pos = this.pos.add(this.vel);
-        if (this.age > 20) {
+        if (this.age > this.matureAge) {
             if (this.pos.x < 0 || this.pos.x + this.el.width > width) {
                 this.vel.invertX();
             }
@@ -79,7 +84,10 @@ export default class Ornament {
             }
         }
         if (this.age > this.lifespan) {
-            this.destory();
+            this.isOld = true;
+            this.destroy();
+        } else if (this.age > this.matureAge && this.pos.y > height) {
+            this.destroy();
         } else {
             this.render();
         }
@@ -94,17 +102,21 @@ export default class Ornament {
         const texture = this.game.graphics.icons[randIndex];
         return new PIXI.Sprite(texture);
     }
-    destory() {
+    destroy() {
         this.el.destroy();
         this.isDead = true;
+        if (!this.isOld && !this.isClicked) {
+            this.game.addStrike();
+        }
     }
     handleClick() {
         document.body.classList.add('isClicked');
-        this.destory();
-        this.addConfetti(10);
-        this.game.addScore(1);
+        this.isClicked = true;
+        this.destroy();
+        this.addConfetti();
+        this.game.addScore();
     }
-    addConfetti(amt: number) {
+    addConfetti(amt: number = 10) {
         for (let i = 0; i < amt; i++) {
             this.game.confetti.push(new Confetti(this.game, this.pos));
         }

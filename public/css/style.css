@@ -40,9 +40,34 @@ canvas {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    user-select: none;
 }
 .strike {
     width: 11.11vmin;
+    height: 11.11vmin;
+    background-size: contain;
+}
+
+.strike-one {
+    background-image: url('../assets/strike-one-checked.png');
+}
+.strike-two {
+    background-image: url('../assets/strike-two-checked.png');
+}
+.strike-three {
+    background-image: url('../assets/strike-three-checked.png');
+}
+[data-strikes='0'] .strike-one {
+    background-image: url('../assets/strike-one-empty.png');
+}
+[data-strikes='0'] .strike-two,
+[data-strikes='1'] .strike-two {
+    background-image: url('../assets/strike-two-empty.png');
+}
+[data-strikes='0'] .strike-three,
+[data-strikes='1'] .strike-three,
+[data-strikes='2'] .strike-three {
+    background-image: url('../assets/strike-three-empty.png');
 }
 
 .score-wrapper {
@@ -56,10 +81,11 @@ canvas {
     height: 11.11vmin;
     background-image: url('../assets/score-counter.png');
     background-size: contain;
+    user-select: none;
 }
 
 .score {
-    font-size: 5vmin;
+    font-size: 4vmin;
     color: #ffffff;
     text-shadow: #ea5e5e -0.3vmin -0.3vmin 0;
 }

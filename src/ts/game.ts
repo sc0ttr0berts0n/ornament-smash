@@ -22,6 +22,8 @@ export default class Game {
     public minFramesPerObject = 5;
     public score = 0;
     public scoreNode = document.querySelector('.score');
+    public strikes = 0;
+    public strikeNode = document.querySelector('.strike-wrapper');
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
@@ -75,8 +77,13 @@ export default class Game {
     public reinit() {
         this.lastRestart = this.frameCount;
     }
-    addScore(num: number) {
+    addScore(num: number = 1) {
+        if (this.strikes >= 3) return;
         this.score = this.score + num;
         this.scoreNode.textContent = this.score.toString();
+    }
+    addStrike(num: number = 1) {
+        this.strikes = this.strikes + num;
+        this.strikeNode.setAttribute('data-strikes', this.strikes.toString());
     }
 }
