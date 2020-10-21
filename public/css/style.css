@@ -29,6 +29,7 @@ canvas {
     background-image: url('../assets/bg-text.png');
     background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
 }
 .isClicked .game-wrapper {
     animation: shake-hard 100ms;
@@ -37,7 +38,7 @@ canvas {
 .strike-wrapper {
     display: flex;
     position: absolute;
-    bottom: 0;
+    bottom: 1vmin;
     left: 50%;
     transform: translateX(-50%);
     user-select: none;
@@ -75,8 +76,8 @@ canvas {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 1vmin;
+    left: 1vmin;
     width: 11.11vmin;
     height: 11.11vmin;
     background-image: url('../assets/score-counter.png');
