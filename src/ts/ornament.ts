@@ -102,7 +102,7 @@ export default class Ornament {
         document.body.classList.add('isClicked');
         this.destory();
         this.addConfetti(10);
-        this.game.score++;
+        this.game.addScore(1);
     }
     addConfetti(amt: number) {
         for (let i = 0; i < amt; i++) {

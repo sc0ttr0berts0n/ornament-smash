@@ -1,13 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
 }
 
 body {
+    font-family: 'Fredoka One', sans-serif;
     background-image: url('../assets/bg-stripes.png');
     background-size: cover;
     background-position: center;
     overflow: hidden;
+}
+
+canvas {
+    position: relative;
+    z-index: 100;
 }
 
 .game-wrapper {
@@ -24,6 +32,36 @@ body {
 }
 .isClicked .game-wrapper {
     animation: shake-hard 100ms;
+}
+
+.strike-wrapper {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.strike {
+    width: 11.11vmin;
+}
+
+.score-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 11.11vmin;
+    height: 11.11vmin;
+    background-image: url('../assets/score-counter.png');
+    background-size: contain;
+}
+
+.score {
+    font-size: 5vmin;
+    color: #ffffff;
+    text-shadow: #ea5e5e -0.3vmin -0.3vmin 0;
 }
 
 @keyframes shake-hard {

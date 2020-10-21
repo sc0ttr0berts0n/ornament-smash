@@ -21,6 +21,7 @@ export default class Game {
     public framesPerObject = 120;
     public minFramesPerObject = 5;
     public score = 0;
+    public scoreNode = document.querySelector('.score');
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
@@ -73,5 +74,9 @@ export default class Game {
     }
     public reinit() {
         this.lastRestart = this.frameCount;
+    }
+    addScore(num: number) {
+        this.score = this.score + num;
+        this.scoreNode.textContent = this.score.toString();
     }
 }
