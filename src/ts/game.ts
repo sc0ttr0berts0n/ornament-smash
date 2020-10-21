@@ -3,7 +3,7 @@ import GraphicAssets from './graphic-assets';
 import AudioAssets from './audio-assets';
 import { Howler } from 'howler';
 import Ornament from './ornament';
-import Confetti from './confetti';
+import { Confetti } from './confetti';
 import Crosshair from './crosshair';
 
 export default class Game {

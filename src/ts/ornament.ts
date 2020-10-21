@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import Game from './game';
 import Victor = require('victor');
-import Confetti from './confetti';
+import { Confetti, ConfettiOptions } from './confetti';
 
 export default class Ornament {
     private el: PIXI.Sprite;
@@ -25,18 +25,19 @@ export default class Ornament {
         this.init();
     }
     init() {
+        // refs for stage dimensions
+        const width = this.game.app.renderer.width;
+        const height = this.game.app.renderer.height;
+
         // determine pos
-        const centerX = this.game.app.renderer.width / 2;
-        const centerY = this.game.app.renderer.height / 2;
-        const center = new Victor(centerX, centerY);
-        const spawnRingRadius = center.magnitude();
-        this.pos = new Victor(-spawnRingRadius, 0)
-            .rotateBy(Math.PI / 4 + (Math.PI / 2) * Math.random())
-            .add(center);
+        this.pos = new Victor(width - this.el.width, height);
+        this.pos.x = this.pos.x * Math.random();
 
         // determine motion target
         const target = new Victor(
-            centerX - this.pos.x * Math.random() + this.pos.x * Math.random(),
+            width / 2 -
+                (width / 2) * Math.random() +
+                (width / 2) * Math.random(),
             0
         );
 
@@ -50,6 +51,18 @@ export default class Ornament {
 
         // add asset to stage
         this.game.graphics.ornamentLayer.addChild(this.el);
+
+        // add some corresponding confetti to launch
+        for (let i = 0; i < 5; i++) {
+            const randX = Math.random() * 10 - 5;
+            const randY = Math.random() * 4 - 2;
+            const confettiVel = this.vel
+                .clone()
+                .multiply(new Victor(0.25, 0.25))
+                .add(new Victor(randX, randY));
+            const confettiOptions = { pos: this.pos, vel: confettiVel };
+            this.addConfetti(1, confettiOptions);
+        }
 
         // init button mode for event tracking
         this.el.interactive = true;
@@ -69,12 +82,19 @@ export default class Ornament {
         );
     }
     update() {
+        // refs for stage dimensions
         const width = this.game.app.renderer.width;
         const height = this.game.app.renderer.height;
+
+        // add age
         this.age++;
+
+        // handle physics
         this.acc = this.gravity;
         this.vel = this.vel.add(this.acc).multiply(this.friction);
         this.pos = this.pos.add(this.vel);
+
+        // handle reflections
         if (this.age > this.matureAge) {
             if (this.pos.x < 0 || this.pos.x + this.el.width > width) {
                 this.vel.invertX();
@@ -83,6 +103,8 @@ export default class Ornament {
                 this.vel.invertY();
             }
         }
+
+        // decide to clear the particle or render it
         if (this.age > this.lifespan) {
             this.isOld = true;
             this.destroy();
@@ -116,9 +138,12 @@ export default class Ornament {
         this.addConfetti();
         this.game.addScore();
     }
-    addConfetti(amt: number = 10) {
+    addConfetti(
+        amt: number = 10,
+        options: ConfettiOptions = { pos: this.pos }
+    ) {
         for (let i = 0; i < amt; i++) {
-            this.game.confetti.push(new Confetti(this.game, this.pos));
+            this.game.confetti.push(new Confetti(this.game, options));
         }
     }
 }

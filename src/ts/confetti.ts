@@ -2,9 +2,15 @@ import * as PIXI from 'pixi.js';
 import Game from './game';
 import Victor = require('victor');
 
-export default class Confetti {
+export interface ConfettiOptions {
+    pos: Victor;
+    vel?: Victor | null;
+}
+
+export class Confetti {
     private el: PIXI.Sprite;
     private game: Game;
+    private options: ConfettiOptions;
     private pos: Victor;
     private vel = new Victor(0, 0);
     private acc = new Victor(0, 0);
@@ -15,18 +21,18 @@ export default class Confetti {
     public isDead = false;
     public speed = 8;
 
-    constructor(game: Game, pos: Victor) {
+    constructor(game: Game, options: ConfettiOptions) {
         this.game = game;
+        this.options = {
+            pos: options.pos.clone() ?? new Victor(0, 0),
+            vel: options.vel?.clone() ?? this.setRandomVel(),
+        };
         this.el = this.getRandomGraphic();
-        this.pos = pos.clone();
+        this.pos = this.options.pos;
+        this.vel = this.options.vel;
         this.init();
     }
     init() {
-        // set vel at target
-        const velX = this.speed * 2 * Math.random() - this.speed;
-        const velY = this.speed * 2 * Math.random() - this.speed;
-        this.vel = new Victor(velX, velY);
-
         // add asset to stage
         this.game.app.stage.addChild(this.el);
     }
@@ -56,6 +62,12 @@ export default class Confetti {
     }
     render() {
         this.el.position.set(this.pos.x, this.pos.y);
+    }
+    setRandomVel() {
+        // set vel at target
+        const velX = this.speed * 2 * Math.random() - this.speed;
+        const velY = this.speed * 2 * Math.random() - this.speed;
+        return new Victor(velX, velY);
     }
     getRandomGraphic() {
         const randIndex = Math.floor(
