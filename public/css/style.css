@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Fredoka One', sans-serif;
-    background-image: url('../assets/bg-stripes.png');
+    background-image: url('../assets/bg-stripes.svg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -26,9 +26,9 @@ canvas {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/bg-text.png');
-    background-size: contain;
-    background-position: center;
+    background-image: url('../assets/bg-text.svg');
+    background-size: 62vmin auto;
+    background-position: center 40%;
     background-repeat: no-repeat;
 }
 .isClicked .game-wrapper {
@@ -47,28 +47,30 @@ canvas {
     width: 11.11vmin;
     height: 11.11vmin;
     background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 0.5vmin;
 }
 
 .strike-one {
-    background-image: url('../assets/strike-one-checked.png');
+    background-image: url('../assets/strike-one-checked.svg');
 }
 .strike-two {
-    background-image: url('../assets/strike-two-checked.png');
+    background-image: url('../assets/strike-two-checked.svg');
 }
 .strike-three {
-    background-image: url('../assets/strike-three-checked.png');
+    background-image: url('../assets/strike-three-checked.svg');
 }
 [data-strikes='0'] .strike-one {
-    background-image: url('../assets/strike-one-empty.png');
+    background-image: url('../assets/strike-one-empty.svg');
 }
 [data-strikes='0'] .strike-two,
 [data-strikes='1'] .strike-two {
-    background-image: url('../assets/strike-two-empty.png');
+    background-image: url('../assets/strike-two-empty.svg');
 }
 [data-strikes='0'] .strike-three,
 [data-strikes='1'] .strike-three,
 [data-strikes='2'] .strike-three {
-    background-image: url('../assets/strike-three-empty.png');
+    background-image: url('../assets/strike-three-empty.svg');
 }
 
 .score-wrapper {
@@ -80,8 +82,9 @@ canvas {
     left: 1vmin;
     width: 11.11vmin;
     height: 11.11vmin;
-    background-image: url('../assets/score-counter.png');
+    background-image: url('../assets/score-counter.svg');
     background-size: contain;
+    background-repeat: no-repeat;
     user-select: none;
 }
 
