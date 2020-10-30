@@ -34,14 +34,22 @@ canvas {
 .isClicked .game-wrapper {
     animation: shake-hard 100ms;
 }
+.game-is-over.game-wrapper {
+    background-image: none;
+}
 
 .strike-wrapper {
     display: flex;
     position: absolute;
+    z-index: 300;
     bottom: 1vmin;
     left: 50%;
     transform: translateX(-50%);
-    user-select: none;
+    cursor: pointer;
+}
+.game-is-started .strike-wrapper {
+    pointer-events: none;
+    z-index: auto;
 }
 .strike {
     width: 11.11vmin;
@@ -49,6 +57,9 @@ canvas {
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0 0.5vmin;
+}
+.hide-strikes .strike {
+    display: none;
 }
 
 .strike-one {
@@ -73,6 +84,33 @@ canvas {
     background-image: url('../assets/strike-three-empty.svg');
 }
 
+.start-button,
+.retry-button {
+    position: relative;
+    z-index: 200;
+    background-image: url('../assets/button-start.svg');
+    height: 11.11vmin;
+    width: 40vmin;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.start-button.is-hidden,
+.retry-button.is-hiddenn {
+    display: none;
+}
+.retry-button {
+    background-image: url('../assets/button-retry.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+.retry-button.is-hidden {
+    display: none;
+}
+
 .score-wrapper {
     display: flex;
     justify-content: center;
@@ -92,6 +130,24 @@ canvas {
     font-size: 4vmin;
     color: #ffffff;
     text-shadow: #ea5e5e -0.3vmin -0.3vmin 0;
+}
+
+.game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/bg-text-dark.svg'),
+        url('../assets/bg-stripes-dark.svg');
+    background-size: 62vmin auto, cover;
+    background-position: center 40%, center;
+    background-repeat: no-repeat;
+    /* background-image: url('../assets/bg-stripes.svg'); */
+    /* background-size: cover;
+    background-position: center; */
 }
 
 @keyframes shake-hard {
