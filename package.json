@@ -1,6 +1,6 @@
 {
-    "name": "tunk",
-    "version": "2.0.0",
+    "name": "ornament-smash",
+    "version": "1.0.0",
     "description": "",
     "private": true,
     "dependencies": {
@@ -21,17 +21,9 @@
         "watch": "webpack-dev-server",
         "build": "npx webpack"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/sc0ttr0berts0n/tunk.git"
-    },
     "keywords": [
         "tunk"
     ],
     "author": "HyperFuel",
-    "license": "UNLICENSED",
-    "bugs": {
-        "url": "https://github.com/sc0ttr0berts0n/tunk/issues"
-    },
-    "homepage": "https://github.com/sc0ttr0berts0n/tunk#readme"
+    "license": "UNLICENSED"
 }
