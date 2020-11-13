@@ -123,6 +123,7 @@ export default class Game {
     }
     gameover() {
         this.gameWrapperNode.classList.add('game-is-over');
+        this.gameWrapperNode.classList.remove('game-is-started');
         this.retryButtonNode.classList.remove('is-hidden');
     }
 }
