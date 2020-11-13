@@ -44,11 +44,15 @@ export default class GraphicAssets {
     public confetti_b = PIXI.Texture.from('assets/confetti-b.png');
     public confetti_c = PIXI.Texture.from('assets/confetti-c.png');
     public confetti_d = PIXI.Texture.from('assets/confetti-d.png');
+    public confetti_e = PIXI.Texture.from('assets/confetti-e.png');
+    public confetti_f = PIXI.Texture.from('assets/confetti-f.png');
     public confetti = [
         this.confetti_a,
         this.confetti_b,
         this.confetti_c,
         this.confetti_d,
+        this.confetti_e,
+        this.confetti_f,
     ];
 
     public crosshair = PIXI.Texture.from('assets/crosshair.png');
