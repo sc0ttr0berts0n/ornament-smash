@@ -110,7 +110,7 @@ export default class Game {
         this.reinitStrikes();
         this.retryButtonNode.classList.add('is-hidden');
         this.gameWrapperNode.classList.remove('game-is-over');
-        this.audio.bgm.volume(0.5);
+        this.audio.bgm.volume(this.audio.BGM_MAX_VOLUME);
         this.audio.bgm.seek(0);
     }
     addStrike(num: number = 1) {
@@ -136,7 +136,7 @@ export default class Game {
         this.gameWrapperNode.classList.add('game-is-over');
         this.gameWrapperNode.classList.remove('game-is-started');
         this.retryButtonNode.classList.remove('is-hidden');
-        this.audio.bgm.fade(0.5, 0, 2000);
+        this.audio.bgm.fade(this.audio.BGM_MAX_VOLUME, 0, 2000);
     }
     toggleMute() {
         this.muted = !this.muted;

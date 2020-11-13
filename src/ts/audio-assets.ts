@@ -3,6 +3,7 @@ import Game from './game';
 
 export default class AudioAssets {
     public game: Game;
+    public BGM_MAX_VOLUME = 0.2;
     public bgm = new Howl({
         src: ['assets/audio/jingle-bells-bgm.mp3'],
     });
