@@ -8,6 +8,7 @@
 body {
     font-family: 'Fredoka One', sans-serif;
     background-image: url('../assets/bg-stripes.svg');
+    background-image: url('../assets/temp-background.jpg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
