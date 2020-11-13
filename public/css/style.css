@@ -219,7 +219,10 @@ canvas {
 
 .sound-wrapper {
     padding: 1vmin;
-    position: relative;
+    margin: 1vmin;
+    top: 0;
+    right: 0;
+    position: absolute;
     z-index: 200;
     font-size: 3rem;
     user-select: none;

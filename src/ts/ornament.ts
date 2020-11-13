@@ -82,7 +82,7 @@ export default class Ornament {
         );
 
         // play "thump" sound
-        this.game.audio.thump.play();
+        this.game.audio.ornament_launch.play();
     }
     update() {
         // refs for stage dimensions
@@ -141,6 +141,9 @@ export default class Ornament {
         this.isClicked = true;
         this.destroy();
         this.addConfetti();
+        this.game.audio.playRandomSoundFromArray(
+            this.game.audio.smash_ornaments
+        );
         this.game.scoreManager.addScore();
     }
     endGameRemove() {

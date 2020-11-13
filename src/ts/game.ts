@@ -48,7 +48,6 @@ export default class Game {
     }
 
     private init() {
-        // Howler.volume(0.2);
         this.app.ticker.add(() => this.update());
         this.graphics.placeAssets();
         this.startButtonNode.addEventListener('click', this.start.bind(this));
@@ -111,6 +110,8 @@ export default class Game {
         this.reinitStrikes();
         this.retryButtonNode.classList.add('is-hidden');
         this.gameWrapperNode.classList.remove('game-is-over');
+        this.audio.bgm.volume(0.5);
+        this.audio.bgm.seek(0);
     }
     addStrike(num: number = 1) {
         this.strikes = this.strikes + num;
@@ -129,14 +130,15 @@ export default class Game {
         this.gameWrapperNode.classList.add('game-is-started');
         this.startButtonNode.classList.add('is-hidden');
         this.strikeNode.classList.remove('hide-strikes');
+        this.audio.bgm.play();
     }
     gameover() {
         this.gameWrapperNode.classList.add('game-is-over');
         this.gameWrapperNode.classList.remove('game-is-started');
         this.retryButtonNode.classList.remove('is-hidden');
+        this.audio.bgm.fade(0.5, 0, 2000);
     }
     toggleMute() {
-        console.log('hi');
         this.muted = !this.muted;
         Howler.mute(this.muted);
         if (this.muted) {
