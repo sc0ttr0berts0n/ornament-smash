@@ -26,7 +26,7 @@ export default class ScoreManager {
         this.update();
     }
 
-    addScore(num: number = 1) {
+    public addScore(num: number = 1) {
         if (this.game.strikes >= 3) return;
         this.score = this.score + num;
     }
