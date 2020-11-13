@@ -5,6 +5,7 @@ import { Howler } from 'howler';
 import Ornament from './ornament';
 import { Confetti } from './confetti';
 import Crosshair from './crosshair';
+import ScoreManager from './score-manager';
 
 export default class Game {
     private canvas: HTMLCanvasElement;
@@ -21,6 +22,7 @@ export default class Game {
     public ornaments: Ornament[] = [];
     public confetti: Confetti[] = [];
     public crosshair: Crosshair;
+    public scoreManager: ScoreManager;
     public framesPerObject = 90;
     public minFramesPerObject = 5;
     public score = 0;
@@ -42,6 +44,7 @@ export default class Game {
         this.graphics = new GraphicAssets(this);
         this.audio = new AudioAssets(this);
         this.crosshair = new Crosshair(this);
+        this.scoreManager = new ScoreManager(this);
         this.init();
     }
 
@@ -56,10 +59,15 @@ export default class Game {
     private update() {
         if (!this.paused) {
             this.frameCount++;
+
+            // determine rate of fire for ornaments
             const rate =
-                this.framesPerObject - this.score > this.minFramesPerObject
-                    ? this.framesPerObject - this.score
+                this.framesPerObject - this.scoreManager.score >
+                this.minFramesPerObject
+                    ? this.framesPerObject - this.scoreManager.score
                     : this.minFramesPerObject;
+
+            // if possible, fire ornaments
             if (
                 this.started &&
                 this.frameCount > this.lastRestart + this.startDelay
@@ -68,6 +76,8 @@ export default class Game {
                     this.ornaments.push(new Ornament(this));
                 }
             }
+
+            // update ornaments
             if (this.ornaments.length) {
                 this.ornaments = this.ornaments.filter(
                     (ornament) => !ornament.isDead
@@ -76,6 +86,8 @@ export default class Game {
                     ornament.update();
                 });
             }
+
+            // update confetti
             if (this.confetti.length) {
                 this.confetti = this.confetti.filter(
                     (particle) => !particle.isDead
@@ -84,24 +96,18 @@ export default class Game {
                     particle.update();
                 });
             }
+
+            // update score
+            this.scoreManager.update();
         }
         this.crosshair.update();
     }
     public reinit() {
         this.lastRestart = this.frameCount;
-        this.reinitScore();
+        this.scoreManager.reinit();
         this.reinitStrikes();
         this.retryButtonNode.classList.add('is-hidden');
         this.gameWrapperNode.classList.remove('game-is-over');
-    }
-    addScore(num: number = 1) {
-        if (this.strikes >= 3) return;
-        this.score = this.score + num;
-        this.scoreNode.textContent = this.score.toString();
-    }
-    reinitScore() {
-        this.score = 0;
-        this.scoreNode.textContent = this.score.toString();
     }
     addStrike(num: number = 1) {
         this.strikes = this.strikes + num;

@@ -112,12 +112,15 @@ canvas {
 }
 
 .score-wrapper {
+    position: absolute;
+    top: 4vmin;
+}
+
+.score-background {
+    margin-left: 4vmin;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 4vmin;
-    left: 4vmin;
     width: 11.11vw;
     height: 11.11vw;
     min-width: 6rem;
@@ -172,6 +175,46 @@ canvas {
 .game-is-started .instructions-wrapper {
     transition: 500ms;
     opacity: 0;
+}
+
+.high-score-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background-color: #f5ebeb;
+    color: #2b2d2b;
+    padding: 1vmin;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 0.5rem solid #e95e5d;
+    border-left: 0;
+    margin-top: 2vmin;
+}
+/* .high-score-wrapper::before {
+    content: 'RESET';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 0.25rem;
+    transform-origin: top right;
+    background-color: #2b2d2b;
+    color: #ffffff;
+    transform: translateY(100%) translateY(0.5rem);
+} */
+
+.high-score-label {
+    padding-right: 1vmin;
+    border-right: 0.5rem solid #e95e5d;
+    margin-right: 1vmin;
+    line-height: 1;
+}
+
+.high-score-value {
+    font-size: 2rem;
 }
 
 @keyframes shake-hard {

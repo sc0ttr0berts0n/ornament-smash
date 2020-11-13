@@ -138,7 +138,7 @@ export default class Ornament {
         this.isClicked = true;
         this.destroy();
         this.addConfetti();
-        this.game.addScore();
+        this.game.scoreManager.addScore();
     }
     endGameRemove() {
         this.destroy();
