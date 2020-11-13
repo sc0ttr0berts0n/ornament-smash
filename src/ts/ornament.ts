@@ -80,6 +80,9 @@ export default class Ornament {
                 this.handleClick();
             }.bind(this)
         );
+
+        // play "thump" sound
+        this.game.audio.thump.play();
     }
     update() {
         // refs for stage dimensions

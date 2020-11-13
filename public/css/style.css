@@ -217,6 +217,25 @@ canvas {
     font-size: 2rem;
 }
 
+.sound-wrapper {
+    padding: 1vmin;
+    position: relative;
+    z-index: 200;
+    font-size: 3rem;
+    user-select: none;
+}
+
+.sound-off {
+    display: none;
+}
+
+.is-muted .sound-on {
+    display: none;
+}
+.is-muted .sound-off {
+    display: block;
+}
+
 @keyframes shake-hard {
     2% {
         transform: translate(-7px, 0px) rotate(3.5deg);

@@ -4,11 +4,11 @@ export default class ScoreManager {
     private game: Game;
     public score: number = 0;
     private localStorageID = 'ornament-smash-high-score';
-    private scoreDomEl: HTMLElement = document.querySelector('.score');
-    private scoreDomElText: string = this.score.toString();
+    private scoreNode: HTMLElement = document.querySelector('.score');
+    private scoreText: string = this.score.toString();
     private highScore: number =
         parseInt(localStorage.getItem(this.localStorageID)) || 0;
-    private highScoreDomEl: HTMLElement = document.querySelector(
+    private highScoreNode: HTMLElement = document.querySelector(
         '.high-score-value'
     );
 
@@ -32,9 +32,9 @@ export default class ScoreManager {
     }
 
     private renderScore() {
-        if (this.score.toString() !== this.scoreDomElText) {
-            this.scoreDomElText = this.score.toString();
-            this.scoreDomEl.textContent = this.score.toString();
+        if (this.score.toString() !== this.scoreText) {
+            this.scoreText = this.score.toString();
+            this.scoreNode.textContent = this.score.toString();
         }
     }
 
@@ -48,7 +48,7 @@ export default class ScoreManager {
         if (_isNewHighScore) {
             this.highScore = this.score;
             localStorage.setItem(this.localStorageID, this.score.toString());
-            this.highScoreDomEl.textContent = this.highScore.toString();
+            this.highScoreNode.textContent = this.highScore.toString();
         }
     }
 
@@ -59,10 +59,10 @@ export default class ScoreManager {
         } else {
             this.highScore = 0;
         }
-        this.highScoreDomEl.textContent = this.highScore.toString();
+        this.highScoreNode.textContent = this.highScore.toString();
     }
 
     private initHighScore() {
-        this.highScoreDomEl.textContent = this.highScore.toString();
+        this.highScoreNode.textContent = this.highScore.toString();
     }
 }

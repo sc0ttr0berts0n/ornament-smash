@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import GraphicAssets from './graphic-assets';
 import AudioAssets from './audio-assets';
-import { Howler } from 'howler';
+import { Howl, Howler } from 'howler';
 import Ornament from './ornament';
 import { Confetti } from './confetti';
 import Crosshair from './crosshair';
@@ -25,13 +25,12 @@ export default class Game {
     public scoreManager: ScoreManager;
     public framesPerObject = 90;
     public minFramesPerObject = 5;
-    public score = 0;
     public strikes = 0;
-    public scoreNode = document.querySelector('.score');
     public strikeNode = document.querySelector('.strike-wrapper');
     public startButtonNode = document.querySelector('.start-button');
     public retryButtonNode = document.querySelector('.retry-button');
     public gameWrapperNode = document.querySelector('.game-wrapper');
+    public muteButtonNode = document.querySelector('.sound-wrapper');
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
@@ -49,11 +48,15 @@ export default class Game {
     }
 
     private init() {
-        Howler.volume(0.2);
+        // Howler.volume(0.2);
         this.app.ticker.add(() => this.update());
         this.graphics.placeAssets();
         this.startButtonNode.addEventListener('click', this.start.bind(this));
         this.retryButtonNode.addEventListener('click', this.reinit.bind(this));
+        this.muteButtonNode.addEventListener(
+            'click',
+            this.toggleMute.bind(this)
+        );
     }
 
     private update() {
@@ -131,5 +134,15 @@ export default class Game {
         this.gameWrapperNode.classList.add('game-is-over');
         this.gameWrapperNode.classList.remove('game-is-started');
         this.retryButtonNode.classList.remove('is-hidden');
+    }
+    toggleMute() {
+        console.log('hi');
+        this.muted = !this.muted;
+        Howler.mute(this.muted);
+        if (this.muted) {
+            this.muteButtonNode.classList.add('is-muted');
+        } else {
+            this.muteButtonNode.classList.remove('is-muted');
+        }
     }
 }
