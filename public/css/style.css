@@ -7,8 +7,7 @@
 
 body {
     font-family: 'Fredoka One', sans-serif;
-    background-image: url('../assets/bg-stripes.svg');
-    background-image: url('../assets/temp-background.jpg');
+    background-image: url('../assets/bg-stripes.png');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -27,7 +26,7 @@ canvas {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/bg-text.svg');
+    background-image: url('../assets/bg-text.png');
     background-size: 55vmin auto;
     background-position: 50% 46%;
     background-repeat: no-repeat;
@@ -64,32 +63,32 @@ canvas {
 }
 
 .strike-one {
-    background-image: url('../assets/strike-one-checked.svg');
+    background-image: url('../assets/strike-one-checked.png');
 }
 .strike-two {
-    background-image: url('../assets/strike-two-checked.svg');
+    background-image: url('../assets/strike-two-checked.png');
 }
 .strike-three {
-    background-image: url('../assets/strike-three-checked.svg');
+    background-image: url('../assets/strike-three-checked.png');
 }
 [data-strikes='0'] .strike-one {
-    background-image: url('../assets/strike-one-empty.svg');
+    background-image: url('../assets/strike-one-empty.png');
 }
 [data-strikes='0'] .strike-two,
 [data-strikes='1'] .strike-two {
-    background-image: url('../assets/strike-two-empty.svg');
+    background-image: url('../assets/strike-two-empty.png');
 }
 [data-strikes='0'] .strike-three,
 [data-strikes='1'] .strike-three,
 [data-strikes='2'] .strike-three {
-    background-image: url('../assets/strike-three-empty.svg');
+    background-image: url('../assets/strike-three-empty.png');
 }
 
 .start-button,
 .retry-button {
     position: relative;
     z-index: 200;
-    background-image: url('../assets/button-start.svg');
+    background-image: url('../assets/button-start.png');
     height: 11.11vmin;
     width: 40vmin;
     background-size: contain;
@@ -101,7 +100,7 @@ canvas {
     display: none;
 }
 .retry-button {
-    background-image: url('../assets/button-retry.svg');
+    background-image: url('../assets/button-retry.png');
     position: absolute;
     top: 50%;
     left: 50%;
@@ -128,7 +127,7 @@ canvas {
     min-height: 6rem;
     max-width: 12rem;
     max-height: 12rem;
-    background-image: url('../assets/score-counter.svg');
+    background-image: url('../assets/score-counter.png');
     background-size: contain;
     background-repeat: no-repeat;
     user-select: none;
@@ -148,12 +147,12 @@ canvas {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/bg-text-dark.svg'),
-        url('../assets/bg-stripes-dark.svg');
+    background-image: url('../assets/bg-text-dark.png'),
+        url('../assets/bg-stripes-dark.png');
     background-size: 62vmin auto, cover;
     background-position: center 40%, center;
     background-repeat: no-repeat;
-    /* background-image: url('../assets/bg-stripes.svg'); */
+    /* background-image: url('../assets/bg-stripes.png'); */
     /* background-size: cover;
     background-position: center; */
 }
