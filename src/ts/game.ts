@@ -108,7 +108,8 @@ export default class Game {
         this.scoreManager.reinit();
         this.reinitStrikes();
         this.retryButtonNode.classList.add('is-hidden');
-        this.start();
+        this.startButtonNode.classList.remove('is-hidden');
+        document.body.classList.remove('game-is-over');
         this.audio.bgm.volume(this.audio.BGM_MAX_VOLUME);
         this.audio.bgm.seek(0);
     }
@@ -132,6 +133,7 @@ export default class Game {
         this.audio.bgm.play();
     }
     gameover() {
+        this.started = false;
         document.body.classList.add('game-is-over');
         document.body.classList.remove('game-is-started');
         this.retryButtonNode.classList.remove('is-hidden');

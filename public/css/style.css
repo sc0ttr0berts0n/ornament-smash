@@ -54,7 +54,7 @@ canvas {
     display: flex;
     position: absolute;
     z-index: 300;
-    bottom: 4vmin;
+    bottom: 8vmin;
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
@@ -167,16 +167,16 @@ canvas {
 }
 
 .instructions-wrapper {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     position: absolute;
     background-color: #f5ebeb;
     color: #2b2d2b;
-    bottom: 19.11vmin;
+    top: 10vmin;
     left: 50%;
     transform: translateX(-50%);
     padding: 1vmin;
-    font-size: 1.5rem;
-    max-width: 90vmin;
+    font-size: 2rem;
+    max-width: 61.78vmin;
     text-align: center;
     border-radius: 1rem;
     border: 0.5rem solid #e95e5d;
@@ -266,6 +266,27 @@ canvas {
 .game-is-started .topbar {
     pointer-events: none;
     cursor: not-allowed;
+}
+
+.message-wrapper {
+    display: none;
+    position: absolute;
+    background-color: #f5ebeb;
+    color: #2b2d2b;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1vmin;
+    font-size: 2rem;
+    max-width: 500px;
+    width: 100%;
+    margin: 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    border: 0.5rem solid #e95e5d;
+}
+.game-is-over .message-wrapper {
+    display: block;
 }
 
 @keyframes shake-hard {
