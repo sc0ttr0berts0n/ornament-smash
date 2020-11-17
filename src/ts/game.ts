@@ -36,9 +36,8 @@ export default class Game {
         this.canvas = canvas;
         this.app = new PIXI.Application({
             view: canvas,
-            width: window.innerWidth,
-            height: window.innerHeight,
             transparent: true,
+            resizeTo: canvas,
         });
         this.graphics = new GraphicAssets(this);
         this.audio = new AudioAssets(this);
@@ -109,7 +108,7 @@ export default class Game {
         this.scoreManager.reinit();
         this.reinitStrikes();
         this.retryButtonNode.classList.add('is-hidden');
-        this.gameWrapperNode.classList.remove('game-is-over');
+        this.start();
         this.audio.bgm.volume(this.audio.BGM_MAX_VOLUME);
         this.audio.bgm.seek(0);
     }
@@ -127,14 +126,14 @@ export default class Game {
     start() {
         this.started = true;
         this.lastRestart = this.frameCount;
-        this.gameWrapperNode.classList.add('game-is-started');
+        document.body.classList.add('game-is-started');
         this.startButtonNode.classList.add('is-hidden');
         this.strikeNode.classList.remove('hide-strikes');
         this.audio.bgm.play();
     }
     gameover() {
-        this.gameWrapperNode.classList.add('game-is-over');
-        this.gameWrapperNode.classList.remove('game-is-started');
+        document.body.classList.add('game-is-over');
+        document.body.classList.remove('game-is-started');
         this.retryButtonNode.classList.remove('is-hidden');
         this.audio.bgm.fade(this.audio.BGM_MAX_VOLUME, 0, 2000);
     }

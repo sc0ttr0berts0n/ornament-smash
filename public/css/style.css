@@ -15,7 +15,19 @@ body {
 
 canvas {
     position: relative;
+    z-index: 500;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+.game-is-started canvas {
     z-index: 100;
+    pointer-events: all;
 }
 
 .game-wrapper {
@@ -34,7 +46,7 @@ canvas {
 .isClicked .game-wrapper {
     animation: shake-hard 100ms;
 }
-.game-is-over.game-wrapper {
+.game-is-over .game-wrapper {
     background-image: none;
 }
 
@@ -52,14 +64,15 @@ canvas {
     z-index: auto;
 }
 .strike {
+    display: none;
     width: 11.11vmin;
     height: 11.11vmin;
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0 0.5vmin;
 }
-.hide-strikes .strike {
-    display: none;
+.game-is-started .strike {
+    display: block;
 }
 
 .strike-one {
@@ -101,10 +114,6 @@ canvas {
 }
 .retry-button {
     background-image: url('../assets/button-retry.png');
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     cursor: pointer;
 }
 .retry-button.is-hidden {
@@ -113,7 +122,7 @@ canvas {
 
 .score-wrapper {
     position: absolute;
-    top: 4vmin;
+    top: 6vmin;
 }
 
 .score-background {
@@ -219,9 +228,8 @@ canvas {
 
 .sound-wrapper {
     padding: 1vmin;
-    margin: 1vmin;
-    top: 0;
-    right: 0;
+    top: 6vmin;
+    right: 2vmin;
     position: absolute;
     z-index: 200;
     font-size: 3rem;
@@ -237,6 +245,27 @@ canvas {
 }
 .is-muted .sound-off {
     display: block;
+}
+
+.topbar {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+    background-color: #c7eafb;
+    background-image: linear-gradient(#faf8ff, #c7eafb);
+}
+.topbar-logo {
+    width: 33vw;
+    height: 1.58vw;
+    min-width: 300px;
+    min-height: 14.59px;
+}
+.game-is-started .topbar {
+    pointer-events: none;
+    cursor: not-allowed;
 }
 
 @keyframes shake-hard {
