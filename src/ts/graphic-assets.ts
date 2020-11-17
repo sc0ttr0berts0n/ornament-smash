@@ -6,6 +6,7 @@ export default class GraphicAssets {
 
     // layers
     public ornamentLayer = new PIXI.Container();
+    public confettiLayer = new PIXI.Container();
     public crosshairLayer = new PIXI.Container();
 
     //icons
@@ -63,6 +64,7 @@ export default class GraphicAssets {
     }
 
     public placeAssets(): void {
+        this.game.app.stage.addChild(this.confettiLayer);
         this.game.app.stage.addChild(this.ornamentLayer);
         this.game.app.stage.addChild(this.crosshairLayer);
     }

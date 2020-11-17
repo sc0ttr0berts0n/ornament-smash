@@ -9,11 +9,11 @@ export default class Ornament {
     private pos: Victor;
     private vel: Victor;
     private acc = new Victor(0, 0);
-    private gravity = new Victor(0, 0.098);
-    private friction = new Victor(0.99, 0.99);
+    readonly gravity = new Victor(0, 0.098);
+    readonly friction = 0.99;
     private age = 0;
-    private lifespan = 500;
-    private matureAge = 20;
+    readonly lifespan = 500;
+    readonly matureAge = 20;
     public isOnScreen = false;
     public isDead = false;
     public isOld = false;
@@ -42,12 +42,10 @@ export default class Ornament {
         );
 
         // set vel at target
-        this.vel = target
-            .subtract(this.pos)
-            .multiply(new Victor(0.0175, 0.0175));
+        this.vel = target.subtract(this.pos).multiplyScalar(0.0175);
 
         // scale asset
-        this.el.scale.set(2, 2);
+        this.el.scale.set(2);
 
         // add asset to stage
         this.game.graphics.ornamentLayer.addChild(this.el);
@@ -58,7 +56,7 @@ export default class Ornament {
             const randY = Math.random() * 4 - 2;
             const confettiVel = this.vel
                 .clone()
-                .multiply(new Victor(0.25, 0.25))
+                .multiplyScalar(0.25)
                 .add(new Victor(randX, randY));
             const confettiOptions = { pos: this.pos, vel: confettiVel };
             this.addConfetti(1, confettiOptions);
@@ -84,17 +82,19 @@ export default class Ornament {
         // play "thump" sound
         this.game.audio.ornament_launch.play();
     }
-    update() {
+    update(delta: number) {
+        // convert delta to a 2d vector
+
         // refs for stage dimensions
         const width = this.game.app.renderer.width;
         const height = this.game.app.renderer.height;
 
         // add age
-        this.age++;
+        this.age = this.age + delta;
 
         // handle physics
-        this.acc = this.gravity;
-        this.vel = this.vel.add(this.acc).multiply(this.friction);
+        this.acc = this.gravity.clone();
+        this.vel = this.vel.add(this.acc).multiplyScalar(this.friction);
         this.pos = this.pos.add(this.vel);
 
         // handle reflections

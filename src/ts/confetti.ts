@@ -14,10 +14,10 @@ export class Confetti {
     private pos: Victor;
     private vel = new Victor(0, 0);
     private acc = new Victor(0, 0);
-    private gravity = new Victor(0, 0.098);
-    private friction = new Victor(0.99, 0.99);
+    private gravity = new Victor(0, 0.15);
+    private friction = 0.99;
     private age = 0;
-    private lifespan = 200;
+    private lifespan = 100;
     public isDead = false;
     public speed = 8;
 
@@ -34,13 +34,14 @@ export class Confetti {
     }
     init() {
         // add asset to stage
-        this.game.app.stage.addChild(this.el);
+        this.el.scale.set(2 / 3);
+        this.game.graphics.confettiLayer.addChild(this.el);
     }
     update() {
         const width = this.game.app.renderer.width;
         this.age++;
         this.acc = this.gravity;
-        this.vel = this.vel.add(this.acc).multiply(this.friction);
+        this.vel = this.vel.add(this.acc).multiplyScalar(this.friction);
         this.pos = this.pos.add(this.vel);
         if (this.age > 20) {
             if (this.pos.x < 0 || this.pos.x + this.el.width > width) {
@@ -65,9 +66,10 @@ export class Confetti {
     }
     setRandomVel() {
         // set vel at target
-        const velX = this.speed * 2 * Math.random() - this.speed;
-        const velY = this.speed * 2 * Math.random() - this.speed;
-        return new Victor(velX, velY);
+        const randomVel = (range: number) => {
+            return range * 2 * Math.random() - range;
+        };
+        return new Victor(randomVel(this.speed), randomVel(this.speed));
     }
     getRandomGraphic() {
         const randIndex = Math.floor(

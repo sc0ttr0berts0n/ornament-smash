@@ -34,10 +34,10 @@ export default class Crosshair {
         document.addEventListener('touchend', this.onClickEnd.bind(this));
     }
     update() {
-        const lerpFactor = new Victor(0.3, 0.3);
+        const lerpFactor = 0.3;
         const lerp = new Victor(this.mousePos.x, this.mousePos.y)
             .subtract(this.pos)
-            .multiply(lerpFactor);
+            .multiplyScalar(lerpFactor);
         this.pos.add(lerp);
         this.render();
     }

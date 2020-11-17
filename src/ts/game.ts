@@ -12,8 +12,8 @@ export default class Game {
     public app: PIXI.Application;
     public graphics: GraphicAssets;
     public audio: AudioAssets;
-    public frameCount: number = 0;
-    private lastRestart: number = 0;
+    public frameCount = 0;
+    private lastRestart = 0;
     private startDelay = 180;
     private paused: boolean = false;
     public started = false;
@@ -47,7 +47,7 @@ export default class Game {
     }
 
     private init() {
-        this.app.ticker.add(() => this.update());
+        this.app.ticker.add((delta) => this.update(delta));
         this.graphics.placeAssets();
         this.startButtonNode.addEventListener('click', this.start.bind(this));
         this.retryButtonNode.addEventListener('click', this.reinit.bind(this));
@@ -57,7 +57,7 @@ export default class Game {
         );
     }
 
-    private update() {
+    private update(delta: number) {
         if (!this.paused) {
             this.frameCount++;
 
@@ -84,7 +84,7 @@ export default class Game {
                     (ornament) => !ornament.isDead
                 );
                 this.ornaments.forEach((ornament) => {
-                    ornament.update();
+                    ornament.update(delta);
                 });
             }
 
