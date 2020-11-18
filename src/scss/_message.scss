@@ -1,0 +1,21 @@
+.message {
+    &--wrapper {
+        margin: 2rem 1rem;
+        display: none;
+        justify-content: center;
+        align-content: center;
+        background-color: #f5ebeb;
+        color: #2b2d2b;
+        padding: 1rem;
+        font-size: 2rem;
+        max-width: rem-calc(600);
+        width: 100%;
+        text-align: center;
+        border-radius: 1rem;
+        border: 0.5rem solid #e95e5d;
+        min-height: 300px;
+        .game-is-over & {
+            display: flex;
+        }
+    }
+}

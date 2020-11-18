@@ -1,0 +1,131 @@
+$global-font-size: 16px;
+@function rem-calc($values, $base: null) {
+    $rem-values: ();
+    $count: length($values);
+
+    // If no base is defined, defer to the global font size
+    @if $base == null {
+        $base: $global-font-size;
+    }
+
+    // If the base font size is a %, then multiply it by 16px
+    // This is because 100% font size = 16px in most all browsers
+    @if unit($base) == '%' {
+        $base: ($base / 100%) * 16px;
+    }
+
+    // Using rem as base allows correct scaling
+    @if unit($base) == 'rem' {
+        $base: strip-unit($base) * 16px;
+    }
+
+    @if $count == 1 {
+        @return $values / strip-unit($base) * 1rem;
+    }
+
+    @for $i from 1 through $count {
+        $rem-values: append($rem-values, -zf-to-rem(nth($values, $i), $base));
+    }
+
+    @return $rem-values;
+}
+
+// coverts a unitted value into a number (1rem => 1)
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+// makes type dynamically rescale between two viewport sizes
+// $min-vw: Min viewport for the effect to start
+// $max-vw: Max viewport for the effect to end
+// $min-font-size: font size at min-vw
+// $max-font-size: font size at max-vw
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+            font-size: $min-font-size;
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(
+                    #{$min-font-size} + #{strip-unit(
+                            $max-font-size - $min-font-size
+                        )} *
+                        (
+                            (100vw - #{$min-vw}) / #{strip-unit(
+                                    $max-vw - $min-vw
+                                )}
+                        )
+                );
+            }
+
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+            }
+        }
+    }
+}
+
+// scales a property dynamically between two viewport sizes
+// for example, to scale padding, line-height, or a margin
+// $min-vw: Min viewport for the effect to start
+// $max-vw: Max viewport for the effect to end
+// $min-property-value: font size at min-vw
+// $max-property-value: font size at max-vw
+@mixin fluid-property(
+    $property,
+    $min-vw,
+    $max-vw,
+    $min-property-value,
+    $max-property-value
+) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-property-value);
+    $u4: unit($max-property-value);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+            #{$property}: $min-property-value;
+            @media screen and (min-width: $min-vw) {
+                #{$property}: calc(
+                    #{$min-property-value} + #{strip-unit(
+                            $max-property-value - $min-property-value
+                        )} *
+                        (
+                            (100vw - #{$min-vw}) / #{strip-unit(
+                                    $max-vw - $min-vw
+                                )}
+                        )
+                );
+            }
+
+            @media screen and (min-width: $max-vw) {
+                #{$property}: $max-property-value;
+            }
+        }
+    }
+}
+
+// scales a property dynamically between two viewport sizes
+// for example, to scale any numeric value, such as line height, rems, but not say...
+// background color
+// $min-vw: Min viewport for the effect to start
+// $max-vw: Max viewport for the effect to end
+// $min-property-value: font size at min-vw
+// $max-property-value: font size at max-vw
+@function fluid-value(
+    $min-vw,
+    $max-vw,
+    $min-property-value,
+    $max-property-value
+) {
+    @return calc(
+        #{$min-property-value} + #{strip-unit(
+                $max-property-value - $min-property-value
+            )} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+    );
+}

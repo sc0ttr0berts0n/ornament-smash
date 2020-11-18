@@ -4,12 +4,14 @@ export default class ScoreManager {
     private game: Game;
     public score: number = 0;
     private localStorageID = 'ornament-smash-high-score';
-    private scoreNode: HTMLElement = document.querySelector('.score');
+    private scoreNode: HTMLElement = document.querySelector(
+        '.score--current-value'
+    );
     private scoreText: string = this.score.toString();
     private highScore: number =
         parseInt(localStorage.getItem(this.localStorageID)) || 0;
     private highScoreNode: HTMLElement = document.querySelector(
-        '.high-score-value'
+        '.score--highscore-value'
     );
 
     constructor(game: Game) {

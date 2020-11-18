@@ -1,14 +1,35 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/ts/index.ts',
+    entry: ['./src/ts/index.ts', './src/scss/style.scss'],
     devtool: 'eval-cheap-module-source-map',
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
                 exclude: /node_modules/,
+                use: 'ts-loader',
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                exclude: /node_modules/,
+                use: [
+                    // loads scss
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'css',
+                            name: 'style.css',
+                        },
+                    },
+                    // Compiles Sass to CSS
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
         ],
     },

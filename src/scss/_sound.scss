@@ -1,0 +1,23 @@
+.sound {
+    &--wrapper {
+        transform: translateY(-0.875rem);
+        z-index: 200;
+        font-size: 3rem;
+        user-select: none;
+    }
+    &--icon {
+        line-height: 1;
+        &__mute {
+            display: block;
+        }
+        &__unmute {
+            display: none;
+        }
+        .is-muted &__unmute {
+            display: block;
+        }
+        .is-muted &__mute {
+            display: none;
+        }
+    }
+}

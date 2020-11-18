@@ -1,0 +1,48 @@
+.strike {
+    &--wrapper {
+        display: flex;
+        z-index: 300;
+        .game-is-started & {
+            pointer-events: none;
+            z-index: auto;
+        }
+    }
+    &--strike {
+        display: none;
+        width: 5rem;
+        height: 5rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 0 0.25rem;
+        @media screen and (min-width: 800px) {
+            width: 20vw;
+            height: 20vw;
+            max-width: 12rem;
+            max-height: 12rem;
+        }
+        .game-is-started & {
+            display: block;
+        }
+        &__one {
+            background-image: url('../assets/strike-one-checked.png');
+            [data-strikes='0'] & {
+                background-image: url('../assets/strike-one-empty.png');
+            }
+        }
+        &__two {
+            background-image: url('../assets/strike-two-checked.png');
+            [data-strikes='0'] &,
+            [data-strikes='1'] & {
+                background-image: url('../assets/strike-two-empty.png');
+            }
+        }
+        &__three {
+            background-image: url('../assets/strike-three-checked.png');
+            [data-strikes='0'] &,
+            [data-strikes='1'] &,
+            [data-strikes='2'] & {
+                background-image: url('../assets/strike-three-empty.png');
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+$global-font-size: 16px;
+@function rem-calc($values, $base: null) {
+    $rem-values: ();
+    $count: length($values);
+
+    // If no base is defined, defer to the global font size
+    @if $base == null {
+        $base: $global-font-size;
+    }
+
+    // If the base font size is a %, then multiply it by 16px
+    // This is because 100% font size = 16px in most all browsers
+    @if unit($base) == '%' {
+        $base: ($base / 100%) * 16px;
+    }
+
+    // Using rem as base allows correct scaling
+    @if unit($base) == 'rem' {
+        $base: strip-unit($base) * 16px;
+    }
+
+    @if $count == 1 {
+        @return $values / strip-unit($base) * 1rem;
+    }
+
+    @for $i from 1 through $count {
+        $rem-values: append($rem-values, -zf-to-rem(nth($values, $i), $base));
+    }
+
+    @return $rem-values;
+}
+
+// some trig:
+$pi: 3.14159265359;
+$_precision: 10;
+
+@function pow($base, $exp) {
+    $value: $base;
+    @if $exp > 1 {
+        @for $i from 2 through $exp {
+            $value: $value * $base;
+        }
+    }
+    @if $exp < 1 {
+        @for $i from 0 through -$exp {
+            $value: $value / $base;
+        }
+    }
+    @return $value;
+}
+
+@function pythag($a, $b) {
+}
+
+@function fact($num) {
+    $fact: 1;
+    @if $num > 0 {
+        @for $i from 1 through $num {
+            $fact: $fact * $i;
+        }
+    }
+    @return $fact;
+}
+
+@function _to_unitless_rad($angle) {
+    @if unit($angle) == 'deg' {
+        $angle: $angle / 180deg * $pi;
+    }
+    @if unit($angle) == 'rad' {
+        $angle: $angle / 1rad;
+    }
+    @return $angle;
+}
+
+@function sin($angle) {
+    $a: _to_unitless_rad($angle);
+    $sin: $a;
+    @for $n from 1 through $_precision {
+        $sin: $sin + (pow(-1, $n) / fact(2 * $n + 1)) * pow($a, (2 * $n + 1));
+    }
+    @return $sin;
+}
+
+@function cos($angle) {
+    $a: _to_unitless_rad($angle);
+    $cos: 1;
+    @for $n from 1 through $_precision {
+        $cos: $cos + (pow(-1, $n) / fact(2 * $n)) * pow($a, 2 * $n);
+    }
+    @return $cos;
+}
+
+@function tan($angle) {
+    @return sin($angle) / cos($angle);
+}

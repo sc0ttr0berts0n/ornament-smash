@@ -26,11 +26,11 @@ export default class Game {
     public framesPerObject = 90;
     public minFramesPerObject = 5;
     public strikes = 0;
-    public strikeNode = document.querySelector('.strike-wrapper');
+    public strikeNode = document.querySelector('.strike--wrapper');
     public startButtonNode = document.querySelector('.start-button');
     public retryButtonNode = document.querySelector('.retry-button');
-    public gameWrapperNode = document.querySelector('.game-wrapper');
-    public muteButtonNode = document.querySelector('.sound-wrapper');
+    public gameWrapperNode = document.querySelector('.game--wrapper');
+    public muteButtonNode = document.querySelector('.sound--wrapper');
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
@@ -140,6 +140,8 @@ export default class Game {
         this.audio.bgm.fade(this.audio.BGM_MAX_VOLUME, 0, 2000);
     }
     toggleMute() {
+        console.log('hi');
+
         this.muted = !this.muted;
         Howler.mute(this.muted);
         if (this.muted) {

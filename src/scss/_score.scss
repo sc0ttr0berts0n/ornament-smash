@@ -1,0 +1,83 @@
+$score-wrapper-padding: 2rem;
+.score {
+    &--wrapper {
+        padding-left: $score-wrapper-padding;
+        flex-basis: 9rem;
+        @media screen and (min-width: 600px) {
+            flex-basis: 12rem;
+        }
+    }
+    &--current-wrapper {
+        position: relative;
+        display: flex;
+        // margin-left: 3rem;
+        justify-content: center;
+        align-items: center;
+        background-image: url('../assets/score-counter.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        user-select: none;
+        width: 100%;
+        max-width: 9rem - $score-wrapper-padding;
+        font-size: 3rem;
+        padding-bottom: 100%;
+        line-height: 0.5;
+        @media screen and (min-width: 600px) {
+            max-width: 12rem - $score-wrapper-padding;
+            font-size: 4rem;
+        }
+    }
+    &--current-value {
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        color: #ffffff;
+        text-shadow: #ea5e5e -0.25rem -0.25rem 0;
+        transform: translateY(-55%);
+        @media screen and (min-width: 600px) {
+            transform: translateY(-60%);
+        }
+    }
+
+    &--highscore-wrapper {
+        // position: absolute;
+        // right: 0;
+        // bottom: 0;
+        display: inline-flex;
+        align-items: center;
+        background-color: #f5ebeb;
+        color: #2b2d2b;
+        padding: 0.5rem;
+        font-size: 1rem;
+        text-align: center;
+        border-radius: 1rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border: 0.375rem solid #e95e5d;
+        border-right: 0;
+        @media screen and (min-width: 600px) {
+            font-size: 1.5rem;
+            padding: 1rem;
+            border-width: 0.5rem;
+        }
+    }
+
+    &--highscore-label {
+        padding-right: 0.5rem;
+        border-right: 0.375rem solid #e95e5d;
+        margin-right: 0.5rem;
+        line-height: 1;
+        @media screen and (min-width: 600px) {
+            border-right-width: 0.5rem;
+            padding-right: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &--highscore-value {
+        font-size: 1.5rem;
+        @media screen and (min-width: 600px) {
+            font-size: 2rem;
+        }
+    }
+}

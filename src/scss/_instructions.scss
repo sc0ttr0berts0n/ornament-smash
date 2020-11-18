@@ -1,0 +1,40 @@
+.instructions {
+    &--container {
+        display: flex;
+        padding: 0 1rem;
+        justify-content: center;
+        flex-basis: 100%;
+        align-content: center;
+        order: 1;
+        margin-top: 2rem;
+        @media screen and (min-width: 800px) {
+            order: 0;
+            flex-basis: rem-calc(600);
+        }
+    }
+    &--wrapper {
+        /* white-space: nowrap; */
+        background-color: #f5ebeb;
+        color: #2b2d2b;
+        padding: 0.75rem;
+        max-width: rem-calc(600) - 2rem;
+        font-size: 1.125rem;
+        text-align: center;
+        border-radius: 1rem;
+        border: 0.375rem solid #e95e5d;
+        .game-is-started & {
+            transition: 500ms;
+            display: none;
+        }
+        @media screen and (min-width: 550px) {
+            font-size: 1.5rem;
+        }
+        @media screen and (min-width: 600px) {
+            padding: 1rem;
+            border-width: 0.5rem;
+        }
+        @media screen and (min-width: 1024px) {
+            font-size: 2rem;
+        }
+    }
+}

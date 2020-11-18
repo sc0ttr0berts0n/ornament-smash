@@ -1,0 +1,20 @@
+.topbar {
+    &--container {
+        position: relative;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding: 1rem;
+        background-color: #c7eafb;
+        background-image: linear-gradient(#faf8ff, #c7eafb);
+        .game-is-started & {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    }
+    &--logo {
+        width: 100%;
+        max-width: 400px;
+    }
+}
