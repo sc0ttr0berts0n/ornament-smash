@@ -26,8 +26,8 @@ export default class Ornament {
     }
     init() {
         // refs for stage dimensions
-        const width = this.game.app.renderer.width;
-        const height = this.game.app.renderer.height;
+        const width = this.game.app.screen.width;
+        const height = this.game.app.screen.height;
 
         // determine pos
         this.pos = new Victor(width - this.el.width, height);
@@ -86,8 +86,8 @@ export default class Ornament {
         // convert delta to a 2d vector
 
         // refs for stage dimensions
-        const width = this.game.app.renderer.width;
-        const height = this.game.app.renderer.height;
+        const width = this.game.app.screen.width;
+        const height = this.game.app.screen.height;
 
         // add age
         this.age = this.age + delta;

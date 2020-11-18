@@ -17,8 +17,8 @@ export default class Crosshair {
         this.game = game;
         this.el = new PIXI.Sprite(this.game.graphics.crosshair);
         this.mousePos = {
-            x: this.game.app.renderer.width / 2,
-            y: this.game.app.renderer.height / 2,
+            x: this.game.app.screen.width / 2,
+            y: this.game.app.screen.height / 2,
             clicked: false,
         };
         this.pos = new Victor(this.mousePos.x, this.mousePos.y);

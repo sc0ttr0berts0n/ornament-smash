@@ -38,7 +38,7 @@ export class Confetti {
         this.game.graphics.confettiLayer.addChild(this.el);
     }
     update() {
-        const width = this.game.app.renderer.width;
+        const width = this.game.app.screen.width;
         this.age++;
         this.acc = this.gravity;
         this.vel = this.vel.add(this.acc).multiplyScalar(this.friction);

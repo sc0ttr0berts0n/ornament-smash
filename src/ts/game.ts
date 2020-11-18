@@ -38,7 +38,7 @@ export default class Game {
             view: canvas,
             transparent: true,
             resizeTo: canvas,
-            autoDensity: true,
+            resolution: window.devicePixelRatio || 1,
         });
         this.graphics = new GraphicAssets(this);
         this.audio = new AudioAssets(this);
