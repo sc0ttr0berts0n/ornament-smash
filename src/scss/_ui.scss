@@ -58,7 +58,6 @@
         }
     }
     &--lower-container {
-        flex-basis: rem-calc(125);
         flex-shrink: 0;
         display: flex;
         justify-content: center;
@@ -66,8 +65,6 @@
         padding: 0 4rem 2rem;
         @media screen and (min-height: 700px) {
             padding: 0 2rem 4rem;
-
-            flex-basis: rem-calc(350);
         }
     }
 }
