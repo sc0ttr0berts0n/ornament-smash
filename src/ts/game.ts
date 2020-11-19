@@ -154,5 +154,8 @@ export default class Game {
     }
     public screenShake() {
         document.body.classList.add('isClicked');
+        setTimeout(() => {
+            document.body.classList.remove('isClicked');
+        }, 100);
     }
 }

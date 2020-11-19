@@ -5,12 +5,15 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        padding: 1rem;
+        padding: 0.625rem 3.5rem;
         background-color: #c7eafb;
         background-image: linear-gradient(#faf8ff, #c7eafb);
         .game-is-started & {
             pointer-events: none;
             cursor: not-allowed;
+        }
+        @media screen and (min-height: 700px) {
+            padding: 1rem 3.5rem;
         }
     }
     &--logo {
