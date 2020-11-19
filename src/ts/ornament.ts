@@ -48,7 +48,7 @@ export default class Ornament {
         );
 
         // scale asset
-        this.el.scale.set(2);
+        this.el.scale.set(this.game.app.screen.width > 600 ? 2 : 1);
 
         // add asset to stage
         this.game.graphics.ornamentLayer.addChild(this.el);

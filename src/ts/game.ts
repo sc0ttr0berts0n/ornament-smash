@@ -56,6 +56,7 @@ export default class Game {
             'click',
             this.toggleMute.bind(this)
         );
+        this.audio.bgm.volume(this.audio.BGM_MAX_VOLUME);
     }
 
     private update(delta: number) {
@@ -111,6 +112,7 @@ export default class Game {
         this.retryButtonNode.classList.add('is-hidden');
         this.startButtonNode.classList.remove('is-hidden');
         document.body.classList.remove('game-is-over');
+        this.audio.bgm.stop();
         this.audio.bgm.volume(this.audio.BGM_MAX_VOLUME);
         this.audio.bgm.seek(0);
     }

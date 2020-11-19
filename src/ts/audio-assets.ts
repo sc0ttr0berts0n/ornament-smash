@@ -3,7 +3,9 @@ import Game from './game';
 
 export default class AudioAssets {
     public game: Game;
-    public BGM_MAX_VOLUME = 0.1;
+    public BGM_MAX_VOLUME = 0.25;
+    public ORNAMENT_LAUNCH_VOLUME = 0.5;
+    public SMASH_ORNAMENT_VOLUME = 0.4;
     public bgm = new Howl({
         src: ['assets/audio/jingle-bells-bgm.mp3'],
     });
@@ -35,6 +37,10 @@ export default class AudioAssets {
     constructor(game: Game) {
         this.game = game;
         this.bgm.loop(true);
+        this.ornament_launch.volume(this.ORNAMENT_LAUNCH_VOLUME);
+        this.smash_ornaments.forEach((orn) => {
+            orn.volume(this.SMASH_ORNAMENT_VOLUME);
+        });
     }
     playRandomSoundFromArray(arr: Howl[]) {
         const index = Math.floor(Math.random() * arr.length);

@@ -42,11 +42,15 @@
         background-size: 55vmin auto;
         background-position: 50% 50%;
         background-repeat: no-repeat;
+        padding: 2rem 0;
         .isClicked & {
             animation: shake-hard 100ms;
         }
         .game-is-over & {
             background-image: none;
+        }
+        @media screen and (max-width: 1024px) {
+            padding: 0;
         }
         @media screen and (max-height: 700px) {
             background-image: none;
