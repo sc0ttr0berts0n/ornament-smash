@@ -140,15 +140,20 @@ export default class Ornament {
         }
     }
     handleClick() {
-        document.body.classList.add('isClicked');
+        this.game.screenShake();
         this.isClicked = true;
+        const pos = new Victor(
+            this.pos.x + this.el.width / 2,
+            this.pos.y + this.el.height / 2
+        );
         this.destroy();
-        this.addConfetti();
+        this.addConfetti(10, { pos });
         this.game.audio.playRandomSoundFromArray(
             this.game.audio.smash_ornaments
         );
         this.game.scoreManager.addScore();
     }
+
     endGameRemove() {
         this.destroy();
         this.addConfetti();
