@@ -134,6 +134,7 @@ export default class Game {
         this.startButtonNode.classList.add('is-hidden');
         this.strikeNode.classList.remove('hide-strikes');
         this.audio.bgm.play();
+        this.screenShake();
     }
     gameover() {
         this.started = false;
@@ -150,5 +151,8 @@ export default class Game {
         } else {
             this.muteButtonNode.classList.remove('is-muted');
         }
+    }
+    public screenShake() {
+        document.body.classList.add('isClicked');
     }
 }

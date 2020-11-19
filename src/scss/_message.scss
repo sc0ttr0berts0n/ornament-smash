@@ -17,5 +17,8 @@
         .game-is-over & {
             display: flex;
         }
+        @media screen and (min-width: 600px) {
+            border-width: 0.5rem;
+        }
     }
 }

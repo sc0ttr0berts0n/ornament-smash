@@ -1,7 +1,9 @@
 .strike {
     &--wrapper {
         display: flex;
+        justify-content: center;
         z-index: 300;
+        width: 100%;
         .game-is-started & {
             pointer-events: none;
             z-index: auto;

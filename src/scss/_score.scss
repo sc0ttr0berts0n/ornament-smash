@@ -3,7 +3,6 @@ $score-wrapper-padding-small: 1rem;
 .score {
     &--wrapper {
         padding-left: $score-wrapper-padding-small;
-        flex-basis: 9rem;
         flex-shrink: 0;
         @media screen and (min-width: 800px) {
             padding-left: $score-wrapper-padding-large;
@@ -13,20 +12,18 @@ $score-wrapper-padding-small: 1rem;
     &--current-wrapper {
         position: relative;
         display: flex;
-        // margin-left: 3rem;
         justify-content: center;
         align-items: center;
         background-image: url('../assets/score-counter.png');
         background-size: contain;
         background-repeat: no-repeat;
         user-select: none;
-        width: 100%;
-        max-width: 7.5rem - $score-wrapper-padding-small;
+        width: 7.5rem - $score-wrapper-padding-small;
         font-size: 2.5rem;
         padding-bottom: 100%;
         line-height: 0.5;
         @media screen and (min-width: 800px) {
-            max-width: 12rem - $score-wrapper-padding-large;
+            width: 12rem - $score-wrapper-padding-large;
             font-size: 4rem;
         }
     }
@@ -36,7 +33,7 @@ $score-wrapper-padding-small: 1rem;
         top: 50%;
         color: #ffffff;
         text-shadow: #ea5e5e -0.25rem -0.25rem 0;
-        transform: translateY(-110%);
+        transform: translateY(-60%);
         @media screen and (min-width: 800px) {
             transform: translateY(-60%);
         }
