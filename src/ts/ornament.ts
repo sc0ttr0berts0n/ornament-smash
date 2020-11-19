@@ -10,7 +10,7 @@ export default class Ornament {
     private vel: Victor;
     private acc = new Victor(0, 0);
     readonly gravity = new Victor(0, 0.098);
-    readonly friction = 0.999;
+    readonly friction = new Victor(0.99, 0.999);
     private age = 0;
     readonly lifespan = 500;
     readonly matureAge = 20;
@@ -44,7 +44,7 @@ export default class Ornament {
         // set vel at target
         this.vel = target.subtract(this.pos).multiplyScalar(0.0175);
         this.vel.y = -Math.sqrt(
-            this.game.app.screen.height * (2 * this.gravity.y)
+            this.game.app.screen.height * 0.75 * (2 * this.gravity.y)
         );
 
         // scale asset
@@ -97,7 +97,7 @@ export default class Ornament {
 
         // handle physics
         this.acc = this.gravity.clone();
-        this.vel = this.vel.add(this.acc).multiplyScalar(this.friction);
+        this.vel = this.vel.add(this.acc).multiply(this.friction);
         this.pos = this.pos.add(this.vel);
 
         // handle reflections
