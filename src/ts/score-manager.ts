@@ -43,6 +43,7 @@ export default class ScoreManager {
     public update() {
         this.renderScore();
         this.renderHighScore();
+        this.highScoreNode.textContent = this.game.app.screen.height.toString();
     }
 
     private renderHighScore() {

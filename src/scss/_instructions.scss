@@ -13,7 +13,6 @@
         }
     }
     &--wrapper {
-        /* white-space: nowrap; */
         background-color: #f5ebeb;
         color: #2b2d2b;
         padding: 0.75rem;
@@ -22,7 +21,8 @@
         text-align: center;
         border-radius: 1rem;
         border: 0.375rem solid #e95e5d;
-        .game-is-started & {
+        .game-is-started &,
+        .game-is-over & {
             transition: 500ms;
             display: none;
         }
