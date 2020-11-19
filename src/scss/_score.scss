@@ -32,10 +32,10 @@ $score-wrapper-padding-small: 1rem;
         display: inline-block;
         top: 50%;
         color: #ffffff;
-        text-shadow: #ea5e5e -0.25rem -0.25rem 0;
-        transform: translateY(-60%);
+        text-shadow: #ea5e5e 0.25rem 0.25rem 0;
+        transform: translate(-10%, -62%);
         @media screen and (min-width: 800px) {
-            transform: translateY(-60%);
+            transform: translate(-10%, -62%);
         }
     }
 
