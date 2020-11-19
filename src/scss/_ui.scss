@@ -36,7 +36,6 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        flex-basis: 100%;
         margin: 2rem;
 
         background-image: url('../assets/bg-text.png');
@@ -44,21 +43,24 @@
         background-position: 50% 50%;
         background-repeat: no-repeat;
         padding: 2rem;
+        @media screen and (min-height: 1150px) {
+            background-size: 55vmin auto;
+        }
         .isClicked & {
             animation: shake-hard 100ms;
         }
+        .game-is-started & {
+            background-image: url('../assets/bg-text.png');
+            @media screen and (min-height: 500px) {
+                background-size: 55vmin auto;
+            }
+            @media screen and (min-height: 1024px) {
+            }
+        }
+
         .game-is-over & {
             margin: 0;
             background-image: none;
-        }
-        @media screen and (max-height: 500px) {
-            background-image: none;
-            .game-is-started & {
-                background-image: url('../assets/bg-text.png');
-            }
-        }
-        @media screen and (min-height: 1050px) {
-            background-size: 55vmin auto;
         }
     }
     &--lower-container {
@@ -68,7 +70,7 @@
         justify-content: center;
         align-content: center;
         padding: 0 0 2rem;
-        @media screen and (min-height: 700px) {
+        @media screen and (min-height: 900px) {
             padding: 0 0 4rem;
         }
     }
