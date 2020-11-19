@@ -23,7 +23,6 @@ body {
     background-position: center;
     max-width: rem-calc(400);
     width: 75%;
-    // width: 100%;
     height: auto;
 }
 .start-button.is-hidden,
@@ -31,7 +30,6 @@ body {
     display: none;
 }
 .retry-button {
-    // background-image: url('../assets/button-retry.png');
     cursor: pointer;
 }
 .retry-button.is-hidden {

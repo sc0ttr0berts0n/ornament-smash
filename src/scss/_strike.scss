@@ -14,7 +14,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         margin: 0 0.25rem;
-        @media screen and (min-width: 800px) {
+        @media screen and (min-height: 800px) {
             width: 20vw;
             height: 20vw;
             max-width: 10rem;

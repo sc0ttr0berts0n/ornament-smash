@@ -37,6 +37,7 @@
         justify-content: center;
         align-content: center;
         flex-basis: 100%;
+
         background-image: url('../assets/bg-text.png');
         background-size: 55vmin auto;
         background-position: 50% 50%;
@@ -48,9 +49,7 @@
         .game-is-over & {
             background-image: none;
         }
-        @media screen and (max-width: 1024px) {
-        }
-        @media screen and (max-height: 700px) {
+        @media screen and (max-height: 800px) {
             background-image: none;
             .game-is-started & {
                 background-image: url('../assets/bg-text.png');

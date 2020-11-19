@@ -143,8 +143,6 @@ export default class Game {
         this.audio.bgm.fade(this.audio.BGM_MAX_VOLUME, 0, 2000);
     }
     toggleMute() {
-        console.log('hi');
-
         this.muted = !this.muted;
         Howler.mute(this.muted);
         if (this.muted) {
