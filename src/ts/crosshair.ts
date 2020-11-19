@@ -26,6 +26,7 @@ export default class Crosshair {
     }
     init() {
         this.el.anchor.set(0.5, 0.5);
+        this.el.scale.set(this.game.app.screen.width > 600 ? 1 : 0.66);
         this.game.graphics.crosshairLayer.addChild(this.el);
         document.addEventListener('mousemove', this.onMouseMove.bind(this));
         document.addEventListener('mousedown', this.onClickStart.bind(this));

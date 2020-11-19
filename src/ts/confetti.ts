@@ -33,8 +33,10 @@ export class Confetti {
         this.init();
     }
     init() {
+        // scale asset
+        this.el.scale.set(this.game.app.screen.width > 600 ? 2 / 3 : 1 / 3);
+
         // add asset to stage
-        this.el.scale.set(2 / 3);
         this.game.graphics.confettiLayer.addChild(this.el);
     }
     update() {
