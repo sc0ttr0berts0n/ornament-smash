@@ -1,11 +1,13 @@
 .sound {
     &--wrapper {
-        transform: translateY(-0.875rem);
         z-index: 200;
         font-size: 3rem;
         user-select: none;
     }
     &--icon {
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+
         line-height: 1;
         &__mute {
             display: block;
@@ -19,5 +21,13 @@
         .is-muted &__mute {
             display: none;
         }
+        @media screen and (min-width: 1024px) {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+    &--icon img {
+        width: 100%;
+        height: auto;
     }
 }

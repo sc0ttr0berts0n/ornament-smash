@@ -1,9 +1,11 @@
-$score-wrapper-padding: 2rem;
+$score-wrapper-padding-large: 2rem;
+$score-wrapper-padding-small: 1rem;
 .score {
     &--wrapper {
-        padding-left: $score-wrapper-padding;
+        padding-left: $score-wrapper-padding-small;
         flex-basis: 9rem;
-        @media screen and (min-width: 600px) {
+        @media screen and (min-width: 800px) {
+            padding-left: $score-wrapper-padding-large;
             flex-basis: 12rem;
         }
     }
@@ -18,12 +20,12 @@ $score-wrapper-padding: 2rem;
         background-repeat: no-repeat;
         user-select: none;
         width: 100%;
-        max-width: 9rem - $score-wrapper-padding;
-        font-size: 3rem;
+        max-width: 7.5rem - $score-wrapper-padding-small;
+        font-size: 2.5rem;
         padding-bottom: 100%;
         line-height: 0.5;
-        @media screen and (min-width: 600px) {
-            max-width: 12rem - $score-wrapper-padding;
+        @media screen and (min-width: 800px) {
+            max-width: 12rem - $score-wrapper-padding-large;
             font-size: 4rem;
         }
     }
@@ -33,7 +35,7 @@ $score-wrapper-padding: 2rem;
         top: 50%;
         color: #ffffff;
         text-shadow: #ea5e5e -0.25rem -0.25rem 0;
-        transform: translateY(-55%);
+        transform: translateY(-110%);
         @media screen and (min-width: 600px) {
             transform: translateY(-60%);
         }
