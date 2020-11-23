@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
     entry: ['./src/ts/index.ts', './src/scss/style.scss'],
-    devtool: 'eval-cheap-module-source-map',
     module: {
         rules: [
             {
@@ -40,14 +39,5 @@ module.exports = {
         filename: 'js/bundle.js',
         path: path.resolve(__dirname, 'public'),
     },
-    optimization: {
-        minimize: true,
-    },
     target: 'web',
-    devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        compress: true,
-        port: 9000,
-        host: '192.168.1.192',
-    },
 };
