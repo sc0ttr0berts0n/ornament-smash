@@ -11,16 +11,17 @@
         padding-right: 1rem;
     }
     &--icon {
+        display: flex;
         align-self: center;
         line-height: 1;
         &__mute {
-            display: block;
+            display: flex;
         }
         &__unmute {
             display: none;
         }
         .is-muted &__unmute {
-            display: block;
+            display: flex;
         }
         .is-muted &__mute {
             display: none;
