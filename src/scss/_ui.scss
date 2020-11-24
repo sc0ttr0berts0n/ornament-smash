@@ -37,13 +37,14 @@
         justify-content: center;
         align-content: center;
         flex-basis: 100%;
-        margin: 2rem;
+        margin: 1rem 15%;
 
         background-image: url('../assets/bg-text.png');
         background-size: contain;
         background-position: 50% 50%;
         background-repeat: no-repeat;
         padding: 2rem;
+        // max-width: 50%;
         @media screen and (min-height: 1150px) {
             background-size: 55vmin auto;
         }
