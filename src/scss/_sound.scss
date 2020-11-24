@@ -1,13 +1,17 @@
 .sound {
     &--wrapper {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
         z-index: 200;
         font-size: 3rem;
         user-select: none;
+        flex-basis: 3rem;
+        padding-right: 1rem;
     }
     &--icon {
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
-
+        align-self: center;
         line-height: 1;
         &__mute {
             display: block;
@@ -27,7 +31,10 @@
         }
     }
     &--icon img {
-        width: 100%;
+        width: 1.5rem;
         height: auto;
+        @media screen and (min-height: 700px) {
+            width: 2rem;
+        }
     }
 }

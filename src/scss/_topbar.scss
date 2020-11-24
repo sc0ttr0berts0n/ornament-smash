@@ -1,19 +1,25 @@
 .topbar {
     &--container {
-        position: relative;
-        z-index: 1000;
         display: flex;
         justify-content: center;
         align-content: center;
-        padding: 0.625rem 3.5rem;
+        position: relative;
+        z-index: 1000;
         background-color: #c7eafb;
         background-image: linear-gradient(#faf8ff, #c7eafb);
+    }
+    &--link-wrapper {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding: 0.625rem 1.5rem;
+        flex-basis: 100%;
+        @media screen and (min-height: 700px) {
+            padding: 1rem 1.5rem;
+        }
         .game-is-started & {
             pointer-events: none;
             cursor: not-allowed;
-        }
-        @media screen and (min-height: 700px) {
-            padding: 1rem 3.5rem;
         }
     }
     &--logo {

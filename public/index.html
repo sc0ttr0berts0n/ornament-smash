@@ -16,7 +16,15 @@
     <body>
         <div class="ui--container">
             <div class="ui--topbar-container">
-                <a href="http://www.marketingresults.net" class="topbar--container"><img src="./assets/logo-mri.svg" alt="Marketing Results" class="topbar--logo"></a>
+                <div class="topbar--container">
+                    <a href="http://www.marketingresults.net" class="topbar--link-wrapper">
+                        <img src="./assets/logo-mri.svg" alt="Marketing Results" class="topbar--logo">
+                    </a>
+                    <div class="sound--wrapper">
+                        <div class="sound--icon sound--icon__mute"><img src="./assets/button-mute.svg" alt="Mute The Audio"></div>
+                        <div class="sound--icon sound--icon__unmute"><img src="./assets/button-sound.svg" alt="Unmute The Audio"></div>
+                    </div>
+                </div>
             </div>
             <div class="ui--upper-container">
                 <div class="score--wrapper">
@@ -25,10 +33,6 @@
                     </div>
                 </div>
                 <div class="ui--upper-right-container">
-                    <div class="sound--wrapper">
-                        <div class="sound--icon sound--icon__mute"><img src="./assets/button-mute.svg" alt="Mute The Audio"></div>
-                        <div class="sound--icon sound--icon__unmute"><img src="./assets/button-sound.svg" alt="Unmute The Audio"></div>
-                    </div>
                     <div class="score--highscore-wrapper">
                         <div class="score--highscore-label">High<br />Score</div>
                         <div class="score--highscore-value">&nbsp;</div>

@@ -2,9 +2,9 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="36.5px"
 	 height="31.4px" viewBox="0 0 36.5 31.4" style="overflow:visible;enable-background:new 0 0 36.5 31.4;" xml:space="preserve">
 <style type="text/css">
-	.st0{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
-	.st1{fill:#FFFFFF;}
-	.st2{clip-path:url(#SVGID_4_);fill:#FFFFFF;}
+	.st0{clip-path:url(#SVGID_2_);fill:#001749;}
+	.st1{fill:#001749;}
+	.st2{clip-path:url(#SVGID_4_);fill:#001749;}
 </style>
 <defs>
 </defs>
@@ -15,7 +15,7 @@
 				<path id="SVGID_1_" d="M8.8,8.2H1.5C0.7,8.2,0,8.9,0,9.8v12.7C0,23.3,0.7,24,1.5,24h7.2c0.5,0,0.9,0.2,1.2,0.6l3.7,4.4
 					c0.9,1.1,2.7,0.4,2.7-1V4.2c0-1.4-1.8-2.1-2.7-1L10,7.7C9.7,8,9.2,8.2,8.8,8.2z"/>
 			</defs>
-			<use xlink:href="#SVGID_1_"  style="overflow:visible;fill:#FFFFFF;"/>
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;fill:#001749;"/>
 			<clipPath id="SVGID_2_">
 				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 			</clipPath>
