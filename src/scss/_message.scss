@@ -1,21 +1,105 @@
 .message {
-    &--wrapper {
-        margin: 0 1rem;
-        display: none;
-        justify-content: center;
-        align-content: center;
-        // align-self: center;
-        background-color: #f5ebeb;
-        color: #2b2d2b;
-        padding: 1rem;
-        font-size: 2rem;
-        max-width: rem-calc(600);
+    &--container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
-        text-align: center;
-        border-radius: 1rem;
-        border: 0.375rem solid #e95e5d;
+        // height: 100%;
+        display: none;
+        align-content: center;
+        justify-content: flex-end;
+        flex-direction: column;
         .game-is-over & {
             display: flex;
         }
+        @media screen and (max-width: 799px) {
+            @media screen and (min-height: 750px) {
+                position: static;
+                justify-content: center;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            max-height: 100%;
+            @media screen and (min-height: 980px) {
+                position: static;
+                justify-content: center;
+            }
+            @media screen and (min-height: 1100px) and (min-width: 1000px) {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+    &--wrapper {
+        margin: 0.5rem;
+        margin-bottom: 1rem;
+        // align-self: center;
+        background-color: #f5ebeb;
+        background-image: url('../assets/bg-stripes.png');
+        background-size: cover;
+        background-position: center;
+        align-self: center;
+        color: #2b2d2b;
+        padding: 1rem;
+        font-size: 2rem;
+        max-width: rem-calc(250);
+        text-align: center;
+        border-radius: 2rem;
+        border: 0.375rem solid #e95e5d;
+        overflow-y: auto;
+        @media screen and (max-width: 799px) {
+            @media screen and (min-height: 600px) {
+                max-width: rem-calc(300);
+
+                padding: 2rem;
+                margin-bottom: 2rem;
+                overflow: visible;
+            }
+            @media screen and (min-height: 1000px) {
+                max-width: rem-calc(450);
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            @media screen and (min-height: 559px) {
+                padding: 1.5rem;
+            }
+            @media screen and (min-height: 680px) {
+                max-width: rem-calc(300);
+
+                padding: 2rem;
+                margin-bottom: 2rem;
+                overflow: visible;
+            }
+            @media screen and (min-height: 1100px) {
+                max-width: rem-calc(450);
+            }
+        }
+    }
+    &--content {
+        width: 100%;
+        text-align: center;
+        @media screen and (min-height: 1100px) and (min-width: 1000px) {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    &--text {
+        margin-top: 1rem;
+        color: #ffffff;
+        text-shadow: rem-calc(3) rem-calc(3) 0 #660e13;
+        font-size: 1.25rem;
+        @media screen and (min-height: 1100px) and (min-width: 1000px) {
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+        }
+    }
+    &--graphic {
+        width: 100%;
+        height: auto;
     }
 }
