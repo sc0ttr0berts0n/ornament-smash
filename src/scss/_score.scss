@@ -57,7 +57,6 @@ $score-wrapper-padding-small: 1rem;
             border-radius: 1rem 0 0 1rem;
             font-size: 1.5rem;
             padding: 1rem;
-            border-width: 0.5rem;
         }
     }
 
@@ -67,9 +66,8 @@ $score-wrapper-padding-small: 1rem;
         margin-right: 0.5rem;
         line-height: 1;
         @media screen and (min-width: 800px) {
-            border-right-width: 0.5rem;
-            padding-right: 1rem;
-            margin-right: 1rem;
+            padding-right: 0.75rem;
+            margin-right: 0.75rem;
         }
     }
 

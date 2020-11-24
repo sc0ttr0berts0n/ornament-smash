@@ -13,12 +13,9 @@
         width: 100%;
         text-align: center;
         border-radius: 1rem;
-        border: 0.5rem solid #e95e5d;
+        border: 0.375rem solid #e95e5d;
         .game-is-over & {
             display: flex;
-        }
-        @media screen and (min-width: 600px) {
-            border-width: 0.5rem;
         }
     }
 }
