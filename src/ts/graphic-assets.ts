@@ -17,7 +17,6 @@ export default class GraphicAssets {
     public icon_deer = PIXI.Texture.from('assets/ic_deer.png');
     public icon_gift = PIXI.Texture.from('assets/ic_gift.png');
     public icon_mitten = PIXI.Texture.from('assets/ic_mitten.png');
-    public icon_santa = PIXI.Texture.from('assets/ic_santa.png');
     public icon_snowflake = PIXI.Texture.from('assets/ic_snowflake.png');
     public icon_snowman = PIXI.Texture.from('assets/ic_snowman.png');
     public icon_sock = PIXI.Texture.from('assets/ic_sock.png');
@@ -31,7 +30,6 @@ export default class GraphicAssets {
         this.icon_deer,
         this.icon_gift,
         this.icon_mitten,
-        this.icon_santa,
         this.icon_snowflake,
         this.icon_snowman,
         this.icon_sock,
