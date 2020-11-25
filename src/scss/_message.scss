@@ -70,7 +70,7 @@
             @media screen and (min-height: 680px) {
                 max-width: rem-calc(300);
 
-                padding: 2rem;
+                padding: 3rem;
                 margin-bottom: 2rem;
                 overflow: visible;
             }
@@ -95,7 +95,7 @@
         font-size: 1.25rem;
         @media screen and (min-height: 1100px) and (min-width: 1000px) {
             margin-top: 1.5rem;
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
     }
     &--graphic {
