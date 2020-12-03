@@ -11,9 +11,9 @@
         padding-right: 1rem;
     }
     &--icon {
-        display: flex;
-        align-self: center;
         line-height: 1;
+        justify-content: center;
+        align-items: center;
         &__mute {
             display: flex;
         }
@@ -33,9 +33,10 @@
     }
     &--icon img {
         width: 1.5rem;
-        height: auto;
+        height: 1.5rem;
         @media screen and (min-height: 700px) {
             width: 2rem;
+            height: 2rem;
         }
     }
 }

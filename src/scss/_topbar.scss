@@ -25,5 +25,13 @@
     &--logo {
         width: 100%;
         max-width: 400px;
+        @media screen and (min-width: 800px) {
+            width: 400px;
+            height: 20px;
+            @supports (display: grid) {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
 }
