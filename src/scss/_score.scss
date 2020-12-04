@@ -36,11 +36,7 @@ $score-wrapper-padding-small: 1rem;
         left: 50%;
         color: #ffffff;
         text-shadow: #ea5e5e 0.25rem 0.25rem 0;
-        transform: translate(-50%, -50%);
-
-        @media screen and (min-width: 800px) {
-            transform: translate(-50%, -50%);
-        }
+        transform: translate(-60%, -60%);
     }
 
     &--highscore-wrapper {
