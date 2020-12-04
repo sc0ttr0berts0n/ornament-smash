@@ -54,8 +54,8 @@ export default class Crosshair {
         this.mousePos.x = e.clientX;
         this.mousePos.y = e.clientY;
     }
-    onClickStart(e: MouseEvent | TouchEvent) {
-        if (e instanceof TouchEvent) {
+    onClickStart(e: Event) {
+        if (window.TouchEvent && e instanceof TouchEvent) {
             this.mousePos.x = e.touches[0].clientX;
             this.mousePos.y = e.touches[0].clientY;
         }
