@@ -8,9 +8,6 @@ $score-wrapper-padding-small: 1rem;
             padding-right: $score-wrapper-padding-large;
             flex-basis: 12rem;
         }
-        * {
-            outline: 1px solid white;
-        }
     }
     &--current-wrapper {
         position: relative;
