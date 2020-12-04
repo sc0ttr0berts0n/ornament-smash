@@ -8,6 +8,9 @@ $score-wrapper-padding-small: 1rem;
             padding-right: $score-wrapper-padding-large;
             flex-basis: 12rem;
         }
+        * {
+            outline: 1px solid white;
+        }
     }
     &--current-wrapper {
         position: relative;
@@ -19,23 +22,27 @@ $score-wrapper-padding-small: 1rem;
         background-repeat: no-repeat;
         user-select: none;
         width: 6.25rem - $score-wrapper-padding-small;
+        height: 6.25rem - $score-wrapper-padding-small;
         font-size: 2.25rem;
-        padding-bottom: 100%;
+        // padding-bottom: 100%;
         line-height: 0.5;
         @media screen and (min-width: 800px) {
             width: 12rem - $score-wrapper-padding-large;
+            height: 12rem - $score-wrapper-padding-large;
             font-size: 4rem;
         }
     }
     &--current-value {
         position: absolute;
-        display: inline-block;
+        display: block;
         top: 50%;
+        left: 50%;
         color: #ffffff;
         text-shadow: #ea5e5e 0.25rem 0.25rem 0;
-        transform: translate(-10%, -62%);
+        transform: translate(-50%, -50%);
+
         @media screen and (min-width: 800px) {
-            transform: translate(-10%, -62%);
+            transform: translate(-50%, -50%);
         }
     }
 
