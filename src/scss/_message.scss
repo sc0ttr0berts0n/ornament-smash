@@ -11,7 +11,12 @@
         justify-content: flex-end;
         flex-direction: column;
         .game-is-over & {
-            display: flex;
+            display: block;
+            overflow: auto;
+            @supports (display: grid) {
+                display: flex;
+                overflow: visible;
+            }
         }
         @media screen and (max-width: 799px) {
             @media screen and (min-height: 820px) {
@@ -26,11 +31,11 @@
                 position: static;
                 justify-content: center;
             }
-            @media screen and (min-height: 1100px) and (min-width: 1000px) {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-            }
+            // @media screen and (min-height: 1100px) and (min-width: 1000px) {
+            //     position: absolute;
+            //     top: 50%;
+            //     transform: translateY(-50%);
+            // }
         }
     }
     &--wrapper {
@@ -38,6 +43,8 @@
         z-index: 2000;
         margin: 0.5rem;
         margin-bottom: 1rem;
+        margin-left: auto;
+        margin-right: auto;
         // align-self: center;
         background-color: #f5ebeb;
         background-image: url('../assets/bg-stripes.png');
