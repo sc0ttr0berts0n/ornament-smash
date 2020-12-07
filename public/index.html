@@ -28,7 +28,7 @@
         </script> -->
         <link rel="stylesheet" href="./css/style.css">
     </head>
-    <body>
+    <body class="no-js">
         <div class="ui--container">
             <div class="ui--topbar-container">
                 <div class="topbar--container">
@@ -44,7 +44,7 @@
             <div class="ui--upper-container">
                 <div class="score--highscore-wrapper">
                     <div class="score--highscore-label">High<br />Score</div>
-                    <div class="score--highscore-value">&nbsp;</div>
+                    <div class="score--highscore-value">?</div>
                 </div>
                 <div class="score--wrapper">
                     <div class="score--current-wrapper">
@@ -64,7 +64,10 @@
             </div>
             <div class="ui--lower-container">
                 <div class="instructions--container">
-                    <div class="instructions--wrapper">Smash the holiday ornaments.<br />If you let <span class="red">3</span> of them fall...<br />GAME OVER!</div>
+                    <div class="instructions--wrapper">
+                        <div class="instructions--no-js-warning">Javascript Seems to not be running in this browser. Please enable javascript to play.</div>
+                        <div class="instructions--text">Smash the holiday ornaments.<br />If you let <span class="red">3</span> of them fall...<br />GAME OVER!</div>
+                    </div>
                 </div>
                 <img class="start-button" src="./assets/button-start.png" alt="start game" />
                 <img class="retry-button is-hidden" src="./assets/button-retry.png" alt="restart game" >

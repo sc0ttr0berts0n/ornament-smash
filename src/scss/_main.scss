@@ -27,6 +27,12 @@ body {
     max-width: rem-calc(400);
     width: 50%;
     height: auto;
+    opacity: 1;
+    transition: 200ms;
+    .no-js & {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 .start-button.is-hidden,
 .retry-button.is-hiddenn {
